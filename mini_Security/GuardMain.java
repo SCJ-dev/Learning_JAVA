@@ -1,12 +1,12 @@
 package java_project;
 
-class Sensor {
-	private String name;
-	private boolean isActive;
-	private int meter;
-	public Sensor (String name, boolean isActive,int meter){
+class Sensor { 
+	private String name; // 센서 이름
+	private boolean isActive; // 센서 활성화 여부
+	private int meter; // 센서의 기본 측정 수치 및 거리
+	public Sensor (String name, boolean isActive,int meter){ 
 		this.name = name;
-		this.isActive = true;
+		this.isActive = true; // 기본을 true로 저장
 		this.meter=meter;
 	}
 	public void operate() {
@@ -19,7 +19,7 @@ class Sensor {
 }
 
 class PIRSensor extends Sensor{
-	private int detectionRange;
+	private int detectionRange; // 적외선 센서가 감지한 범위
 	public PIRSensor(String name, boolean isActive, int detectionRange){
 		super(name, isActive, detectionRange);
 		this.detectionRange=detectionRange;
@@ -30,7 +30,7 @@ class PIRSensor extends Sensor{
 		}
 }
 class SoundSensor extends Sensor {
-	private int threshold;
+	private int threshold; // 경보를 울릴 기준이 되는 소음 수치
 	public SoundSensor (String name, boolean isActive, int threshold){
 		super(name, isActive, threshold);
 		this.threshold=threshold;
@@ -45,7 +45,7 @@ public class GuardMain {
 	public static void main(String[] args) {
 		System.out.println("===== 무인 경비 시스템 가동 =====");
 		Sensor security = new Sensor("cam", true, 50);
-		security.operate();
+		security.operate(); // 부모 operate를 실행
 		SoundSensor sound = new SoundSensor("cam", true, 100);
 		System.out.println();
 	
