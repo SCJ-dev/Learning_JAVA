@@ -41,7 +41,7 @@ class SoundSensor extends Sensor {
 	}
 }
 
-public class GuardMain {
+public class GuardMainVer1 {
 	public static void main(String[] args) {
 		System.out.println("===== 무인 경비 시스템 가동 =====");
 		Sensor security = new Sensor("cam", true, 50);
