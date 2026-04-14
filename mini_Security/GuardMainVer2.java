@@ -59,7 +59,7 @@ class SoundSensor extends Sensor {
 	}
 }
 
-public class GuardMain1 {
+public class GuardMainVer2 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("전원을 켤까요?(Y/N)");
