@@ -1,6 +1,6 @@
 package mini_Security;
 import java.util.Scanner;
-import java.util.Random;
+import java.util.Random; // 값을 랜덤으로 받아서 결과에 맞게 출력
 
 class Sensor {
 	private String name;
@@ -64,15 +64,15 @@ public class GuardMainVer2 {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("전원을 켤까요?(Y/N)");
 		String ans = scanner.nextLine();
-		if (ans.equals("N") || ans.equals("m")){
+		if (ans.equals("N") || ans.equals("n")){ // N이면 프로그램 종료
 			 System.out.println("프로그램을 종료합니다.");
-			 System.exit(0);
-		} else if(ans.equals("Y") || ans.equals("y")){
+			 System.exit(0); // 강제 종료
+		} else if(ans.equals("Y") || ans.equals("y")){ // Y면 프로그램 동작
 			System.out.println("프로그램을 시작합니다! 로딩중...");
 		}
 		else {
-			System.out.println("프로그램을 닫습니다.");
-			System.exit(0);
+			System.out.println("프로그램을 닫습니다."); // Y, N도 아니면 프로그램 종료
+			System.exit(0); 
 		}		
 		System.out.println("=====장비 초기 세팅=====");
 		System.out.print("장비 이름을 입력하세요 : ");
@@ -82,7 +82,7 @@ public class GuardMainVer2 {
 		System.out.println("========================");
 		System.out.println();
 
-		scanner.nextLine();
+		scanner.nextLine(); // Scanner에 있는 값을 한 번 비워줌(이전에 넣어놨던 값이 있을 수 있음)(버퍼비우기)
 		
 		while (true) 
 		{
@@ -94,18 +94,17 @@ public class GuardMainVer2 {
 		if (cho == 1) {	
 		System.out.println("===== 무인 경비 시스템 가동 =====\n");
 		
-		Random random = new Random();
-		Random random1 = new Random();
+		Random random = new Random(); // 랜덤 함수를 두개 만듦(PIR센서, 소리 센서에 넣기 위해)
 		int value = random.nextInt(200);
 		int value1 = random.nextInt(100);
-		SoundSensor sound = new SoundSensor("cam", true, value);
-		PIRSensor pir = new PIRSensor("cam", true, value1);
-		sound.operate();
-		pir.operate();
+		SoundSensor sound = new SoundSensor("cam", true, value); // cam과 프로그램이 켜졌기 때문에 true 랜덤값을 넣음 
+		PIRSensor pir = new PIRSensor("cam", true, value1); 
+		sound.operate(); // SoundSensor에 있는 operate 호출
+		pir.operate(); // PIRSensor가 있는 operate 호출
 		}		
 		else if (cho == 2) {
 			Sensor security = new Sensor(sennm, true, met);
-			security.operate();
+			security.operate(); // Sensor에 있는 operate 호출
 		}
 
 		else if(cho == 3) {
